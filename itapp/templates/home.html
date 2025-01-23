@@ -1,0 +1,65 @@
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="a.rahimi@eit">
+    <meta name="keywords" content="EIT Chatbot">
+    <title> EIT Chatbot </title>
+    <style>
+    body {color: #1a1a21; font-family: Calibri; background-color: #cfd1d1;}
+    h1   {font-size:179%; text-align:left; padding:0px}
+    h2   {font-size:136%; text-align:center; padding:0px}
+    h3   {font-size:123%; text-align:right; padding:0px}
+    h4   {font-size:111%; text-align:left; padding:0px}
+    h5   {font-size:95%; text-align:center; padding:0px}
+    p    {font-size:100%; text-align:justify; }
+    hr   {color="#76b098"; }
+
+    * { box-sizing: border-box;}
+    header  {background-color: #cfd1d1; padding: 3px; text-align: left; font-size: 13px; color: #000000;}
+    nav     {float: left; text-align: center; width: 70%; background: #cfd1d1; padding: 13px; color: #141;}
+    nav ul  {list-style-type: none; padding: 0; }
+    article {float: right; padding: 13px; width: 30%; background-color: #cfd1d1; color: #141; font-family:Calibri;  }
+    section::after {content: ""; display: table; clear: both; }
+    footer {background-color: #cfd1d1; padding: 6px; text-align: center; color: #666b73; }
+    @media (max-width: 600px) {nav, article {width: 100%;    height: auto;  }}
+    </style>
+</head>
+
+<body>
+<header>
+    <a href="/" style="text-decoration: none; color:#666b73">
+        <div dir="rtl" style="width:100%; border:3px solid #ffffff; border-radius:11px; box-shadow:0 0 1px #999">
+            <h1>EIT Chatbot</h1>
+        </div>
+    </a>
+
+</header>
+
+<section>
+<nav>
+
+</nav>
+
+<article dir="rtl">
+
+    {% for row in models %}
+    <a href="../model={{row.name}}&session={{session}}" style="text-decoration: none; color:#666b73">
+        <div dir="rtl" style="width:100%; border:2px solid #5c6665; border-radius:11px; box-shadow:0 0 1px #999">
+            <p><strong> {{row.name}} </strong> <br> {{row.description}} </p>
+        </div>
+    </a>
+    {% endfor %}
+
+
+
+
+</article>
+</section>
+
+<footer>
+    <p>Version: <strong>{{version}}</strong></p>
+</footer>
+</body>
+</html>

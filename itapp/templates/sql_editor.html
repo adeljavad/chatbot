@@ -1,0 +1,23 @@
+{% extends "chatbot.html" %}
+
+{% block content %}
+<h1>SQL Editor</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Run Query</button>
+</form>
+
+<script>
+    // فعال کردن CodeMirror برای textarea
+    var editor = CodeMirror.fromTextArea(document.getElementById('sql-editor'), {
+        mode: 'sql',  // حالت سینتکس SQL
+        lineNumbers: true,  // نمایش شماره خطوط
+        theme: 'default',  // تم ویرایشگر
+        indentWithTabs: true,  // استفاده از تب برای تو رفتگی
+        smartIndent: true,  // تو رفتگی هوشمند
+        matchBrackets: true,  // تطابق براکت‌ها
+        autofocus: true,  // فوکوس خودکار روی ویرایشگر
+    });
+</script>
+{% endblock %}

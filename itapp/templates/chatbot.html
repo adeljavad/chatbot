@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/sql/sql.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="window.location.href='{% url 'view1' %}'">View 1</button>
+            <button onclick="window.location.href='{% url 'view2' %}'">View 2</button>
+            <button onclick="window.location.href='{% url 'view3' %}'">View 3</button>
+        </div>
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <!-- پیام‌های چت در اینجا نمایش داده می‌شوند -->
+            </div>
+            <form id="chat-form" method="post" action="{% url 'send_message' %}">
+                {% csrf_token %}
+                <textarea name="message" id="message" rows="3" placeholder="پیام خود را تایپ کنید..."></textarea>
+                <button type="submit">ارسال</button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+</body>
+</html>
